@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Simple Frontend</title></head>
+<body>
+  <h1>Simple Frontend</h1>
+  <button id="btn">Call API</button>
+  <pre id="out"></pre>
+<script>
+document.getElementById('btn').onclick = async () => {
+  const res = await fetch('http://alb-ecs-1989227817.us-east-1.elb.amazonaws.com/api/hello');
+  const data = await res.json();
+  document.getElementById('out').textContent = JSON.stringify(data, null, 2);
+};
+</script>
+</body>
+</html>
